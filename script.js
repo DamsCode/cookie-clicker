@@ -3,6 +3,7 @@
     let mybtn = document.getElementById("click");
     let btnmulti = document.getElementById("multiplier");
     let btnautoclick = document.getElementById("autoclick");
+    let btnbonus = document.getElementById("bonus");
     let multiplicateur = 1;
     let score = 0;
     let cout = 50;
@@ -12,6 +13,27 @@
         cout = cout * 2;
         multiplicateur++;
         elem.innerText = `Multiplicateur x${multiplicateur} prochain achat :${cout}`;
+    }
+
+    function increment() {
+        let inc = parseInt(mydiv.innerText);
+        score = inc + multiplicateur;
+        mydiv.innerText = score;
+        return score;
+    }
+
+    function decrementbonus(compteur, e) {
+        if (compteur > 0) {
+            compteur--;
+            e.target.innerText = compteur;
+            setTimeout(() => {
+                decrementbonus(compteur, e);
+            }, 1000);
+        } else {
+            multiplicateur = multiplicateur / 2;
+            e.target.removeAttribute("disabled");
+            e.target.innerText = "bonus";
+        }
     }
 
     mybtn.addEventListener("click", () => {
@@ -38,11 +60,10 @@
             e.target.setAttribute("disabled", "true");
         }
     });
-
-    function increment() {
-        let inc = parseInt(mydiv.innerText);
-        score = inc + multiplicateur;
-        mydiv.innerText = score;
-        return score;
-    }
+    btnbonus.addEventListener("click", (e) => {
+        e.target.setAttribute("disabled", "true");
+        let compteur = 30;
+        multiplicateur = multiplicateur * 2;
+        decrementbonus(compteur, e);;
+    });
 })();
