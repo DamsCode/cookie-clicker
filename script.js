@@ -7,19 +7,22 @@
     let multiplicateur = 1;
     let score = 0;
     let cout = 50;
-    btnmulti.innerText = `Multiplicateur x${multiplicateur} prochain achat :${cout}`;
+    let bonusactivate = false;
+    btnmulti.innerText = `Multiplicateur x${multiplicateur} (${cout} crédit)`;
+    btnmulti.setAttribute("disabled", "true");
+    btnautoclick.setAttribute("disabled", "true");
+    btnbonus.setAttribute("disabled", "true");
 
     function augmenterMultiplicateur(elem) {
         cout = cout * 2;
         multiplicateur++;
-        elem.innerText = `Multiplicateur x${multiplicateur} prochain achat :${cout}`;
+        elem.innerText = `Multiplicateur x${multiplicateur} (${cout} crédit)`;
     }
 
     function increment() {
         let inc = parseInt(mydiv.innerText);
         score = inc + multiplicateur;
         mydiv.innerText = score;
-        return score;
     }
 
     function decrementbonus(compteur, e) {
@@ -31,39 +34,64 @@
             }, 1000);
         } else {
             multiplicateur = multiplicateur / 2;
-            e.target.removeAttribute("disabled");
-            e.target.innerText = "bonus";
+            e.target.innerText = "bonus (5000 crédits)";
+            bonusactivate = false;
+            gestionbutton();
         }
     }
 
     mybtn.addEventListener("click", () => {
         increment();
+        gestionbutton();
     });
 
-    btnmulti.addEventListener("click", (e) => {
+    btnmulti.addEventListener("click", e => {
         if (score >= cout) {
-            score = score - cout;
+            score -= cout;
             augmenterMultiplicateur(e.target);
             mydiv.innerText = score;
-        } else
-            alert("la maison ne fait pas crédit !!");
-
+        }
+        gestionbutton();
     });
 
-    btnautoclick.addEventListener("click", (e) => {
+    btnautoclick.addEventListener("click", e => {
         if (score >= 500) {
             setInterval(() => {
                 increment();
             }, 1000);
-            score = score - 500;
+            score -= 500;
             mydiv.innerText = score;
-            e.target.setAttribute("disabled", "true");
+            e.target.disabled = false;
+        }
+        gestionbutton();
+    });
+    btnbonus.addEventListener("click", e => {
+        if (score >= 5000) {
+            score -= 5000;
+            bonusactivate = true;
+            e.target.disabled = true;
+            let compteur = 30;
+            multiplicateur = multiplicateur * 2;
+            decrementbonus(compteur, e);
+            mydiv.innerText = score;
         }
     });
-    btnbonus.addEventListener("click", (e) => {
-        e.target.setAttribute("disabled", "true");
-        let compteur = 30;
-        multiplicateur = multiplicateur * 2;
-        decrementbonus(compteur, e);;
-    });
+
+    function gestionbutton() {
+        if (score >= cout) {
+            btnmulti.disabled = false;
+        } else {
+            btnmulti.disabled = true;
+        }
+        if (score >= 500) {
+            btnautoclick.disabled = false;
+        } else {
+            btnautoclick.disabled = true;
+        }
+        if (score >= 5000 && !bonusactivate) {
+            btnbonus.disabled = false;
+        } else {
+            btnbonus.disabled = true;
+        }
+    }
 })();
