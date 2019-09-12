@@ -8,20 +8,26 @@
     let score = 0;
     let cout = 50;
     let bonusactivate = false;
+    let multibonus = 1;
     btnmulti.innerText = `Multiplicateur x${multiplicateur} (${cout} crédit)`;
     btnmulti.setAttribute("disabled", "true");
     btnautoclick.setAttribute("disabled", "true");
     btnbonus.setAttribute("disabled", "true");
 
     function augmenterMultiplicateur(elem) {
-        cout = cout * 2;
+        cout *= 2;
         multiplicateur++;
         elem.innerText = `Multiplicateur x${multiplicateur} (${cout} crédit)`;
+        if (bonusactivate) {
+            multibonus = multiplicateur * 2;
+        }
     }
 
     function increment() {
         let inc = parseInt(mydiv.innerText);
-        score = inc + multiplicateur;
+        if (bonusactivate) {
+            score = inc + multibonus;
+        } else score = inc + multiplicateur;
         mydiv.innerText = score;
     }
 
@@ -33,7 +39,7 @@
                 decrementbonus(compteur, e);
             }, 1000);
         } else {
-            multiplicateur = multiplicateur / 2;
+            multibonus = Math.ceil(multibonus / 2);
             e.target.innerText = "bonus (5000 crédits)";
             bonusactivate = false;
             gestionbutton();
@@ -71,7 +77,7 @@
             bonusactivate = true;
             e.target.disabled = true;
             let compteur = 30;
-            multiplicateur = multiplicateur * 2;
+            multibonus = multiplicateur * 2;
             decrementbonus(compteur, e);
             mydiv.innerText = score;
         }
