@@ -46,6 +46,14 @@
         }
     }
 
+    /**
+     * prevent the enter key press
+     */
+    mybtn.addEventListener("keypress", e => {
+        // if (e.keyCode === 13) {
+        //     e.preventDefault();
+        // }
+    });
     mybtn.addEventListener("click", () => {
         increment();
         gestionbutton();
@@ -86,6 +94,7 @@
     function gestionbutton() {
         if (score >= cout) {
             btnmulti.disabled = false;
+            // btnmulti.classList.add("active");
         } else {
             btnmulti.disabled = true;
         }

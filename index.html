@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <title>cookie-clicker</title>
 </head>
 
@@ -14,10 +15,16 @@
         <div id="affichage">
             0
         </div>
-        <button id="click">click</button>
-        <button id="multiplier">multiplier</button>
-        <button id="autoclick">autoclicker(500 crédits)</button>
-        <button id="bonus">bonus(5000 crédits)</button>
+
+        <div>
+            <button id="click"></button>
+            <div id="circle"></div>
+        </div>
+        <div>
+            <button class="active" id="multiplier">multiplier</button>
+            <button id="autoclick">autoclicker(500 crédits)</button>
+            <button id="bonus">bonus(5000 crédits)</button>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
