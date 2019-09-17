@@ -9,7 +9,7 @@
     let cout = 50;
     let bonusactivate = false;
     let multibonus = 1;
-    btnmulti.innerText = `Multiplicateur x${multiplicateur} (${cout} crédit)`;
+    btnmulti.innerText = `Multiplicateur x${multiplicateur} (suivant ${cout} crédit)`;
     btnmulti.setAttribute("disabled", "true");
     btnautoclick.setAttribute("disabled", "true");
     btnbonus.setAttribute("disabled", "true");
@@ -17,7 +17,7 @@
     function augmenterMultiplicateur(elem) {
         cout *= 2;
         multiplicateur++;
-        elem.innerText = `Multiplicateur x${multiplicateur} (${cout} crédit)`;
+        elem.innerText = `Multiplicateur x${multiplicateur} (suivant ${cout} crédit)`;
         if (bonusactivate) {
             multibonus = multiplicateur * 2;
         }
@@ -40,20 +40,13 @@
             }, 1000);
         } else {
             multibonus = Math.ceil(multibonus / 2);
-            e.target.innerText = "bonus (5000 crédits)";
+            e.target.innerText = "Bonus (5000 crédits)";
             bonusactivate = false;
             gestionbutton();
         }
     }
 
-    /**
-     * prevent the enter key press
-     */
-    mybtn.addEventListener("keypress", e => {
-        // if (e.keyCode === 13) {
-        //     e.preventDefault();
-        // }
-    });
+
     mybtn.addEventListener("click", () => {
         increment();
         gestionbutton();

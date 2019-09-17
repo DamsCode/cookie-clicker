@@ -1,14 +1,21 @@
 #block {
     display: flex;
-    flex-flow: column;
-    align-items: center;
+    flex-flow: row;
 }
 
 #affichage {
     font-size: 500%;
 }
 
+#blockcookie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30px;
+}
+
 #click {
+    position: relative;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -30,33 +37,262 @@
     }
 }
 
-#multiplier {
-    position: relative;
-    background-color: #f39c12;
-    border: none;
-    padding: 20px;
-    width: 200px;
-    text-align: center;
-    transition-duration: 0.4s;
-    text-decoration: none;
-    overflow: hidden;
-    color: #fff;
-}
+#multiplier {}
 
-.active {
-    background: #fff;
-    box-shadow: 0px 2px 10px 5px #97B1BF;
-    color: #000;
+.myButton {
+    margin-top: 20px;
+    -moz-box-shadow: 3px 4px 0px 0px #899599;
+    -webkit-box-shadow: 3px 4px 0px 0px #899599;
+    box-shadow: 3px 4px 0px 0px #899599;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #bab1ba));
+    background: -moz-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+    background: -webkit-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+    background: -o-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+    background: -ms-linear-gradient(top, #ededed 5%, #bab1ba 100%);
+    background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+    // filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#bab1ba', GradientType=0);
+    background-color: #ededed;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid #d6bcd6;
+    display: inline-block;
+    cursor: pointer;
+    color: #3a8a9e;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 7px 25px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #e1e2ed;
+    &:hover {
+        background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+        background-color: #bab1ba;
+    }
+    &:active {
+        position: relative;
+        top: 1px;
+    }
+    &:disabled {
+        background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+        background-color: #bab1ba;
+        position: relative;
+        top: 1px;
+        cursor: not-allowed;
+    }
 }
 
 #autoclick {}
 
 #bonus {}
 
-#circle {
+#blockbtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 80px;
+}
+
+.basec {
     width: 10px;
     height: 10px;
     background: black;
     border-radius: 50%;
+    display: block;
     position: relative;
 }
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(2) {
+    top: -160px;
+    left: 30px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(3) {
+    top: -160px;
+    left: 50px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(4) {
+    top: -190px;
+    left: 70px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(5) {
+    top: -200px;
+    left: 100px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(6) {
+    top: -190px;
+    left: 90px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(7) {
+    top: -190px;
+    left: 120px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(8) {
+    top: -230px;
+    left: 130px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(9) {
+    top: -190px;
+    left: 20px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(10) {
+    top: -220px;
+    left: 150px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(11) {
+    top: -220px;
+    left: 70px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(12) {
+    top: -220px;
+    left: 100px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(13) {
+    top: -240px;
+    left: 40px;
+}
+
+div.basec:nth-child(14) {
+    top: -230px;
+    left: 140px;
+}
+
+div.basec:nth-child(15) {
+    top: -230px;
+    left: 60px;
+}
+
+div.basec:nth-child(16) {
+    top: -240px;
+    left: 90px;
+}
+
+div.basec:nth-child(17) {
+    top: -250px;
+    left: 120px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(18) {
+    top: -250px;
+    left: 30px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(19) {
+    top: -239px;
+    left: 70px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(20) {
+    top: -260px;
+    left: 100px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(21) {
+    top: -260px;
+    left: 120px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(22) {
+    top: -270PX;
+    left: 160px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(23) {
+    top: -310px;
+    left: 160PX;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(24) {
+    top: -280px;
+    left: 40px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(25) {
+    top: -270px;
+    left: 90px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(26) {
+    top: -280px;
+    left: 130px;
+}
+
+
+/* Élément | http://127.0.0.1:5500/ */
+
+div.basec:nth-child(27) {
+    top: -290px;
+    left: 60px;
+}   
